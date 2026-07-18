@@ -1,183 +1,81 @@
-# 📚 Book Store
+# BookStore Management System (MERN Stack)
 
-Welcome to **Book Store** – your one-stop destination for discovering, exploring, and purchasing books online. Whether you're a passionate reader, a student, or someone looking for the perfect book, **Book Store** provides a seamless and user-friendly platform to browse books, manage your cart, and place orders with ease.
+A premium, interactive bookstore web application designed with an immersive 3D floating book centerpiece, customizable cursor animations, custom 3D glassmorphism buttons, and dynamic book list tracking in Indian Rupees (₹).
 
-Built using the **MERN Stack (MongoDB, Express.js, React.js, and Node.js)**, the application offers a modern, responsive, and secure shopping experience. Users can search books by title or category, view detailed information, add books to their cart, and track their orders. The platform also includes an **Admin Dashboard** that allows administrators to manage books, inventory, users, and customer orders efficiently.
-
-Designed with performance and simplicity in mind, **Book Store** delivers a smooth experience across desktops, tablets, and mobile devices, making it easy to access your favorite books anytime and anywhere.
-
----
-
-# ✨ Features
-
-### 👤 User Features
-
-- **User Registration & Secure Login**
-- **JWT-based Authentication**
-- **Browse and Search Books**
-- **Filter Books by Category**
-- **View Book Details**
-- **Shopping Cart Management**
-- **Place Orders**
-- **View Order History**
-- **Responsive User Interface**
-
-### 🛠️ Admin Features
-
-- **Admin Dashboard**
-- **Add New Books**
-- **Update Book Information**
-- **Delete Books**
-- **Manage Inventory**
-- **Manage Customer Orders**
-- **Manage Registered Users**
-
----
-
-# 🛠️ Tech Stack
-
-## Frontend
-- React.js
-- Vite
-- React Router DOM
-- Axios
-- CSS
-
-## Backend
-- Node.js
-- Express.js
-- MongoDB
-- Mongoose
-- JWT Authentication
-- bcrypt.js
-
----
-
-# 📂 Project Structure
+## Project Structure
 
 ```
-BOOK-STORE/
-│
-├── client/
-│   ├── public/
-│   ├── src/
-│   └── package.json
-│
-├── server/
-│   ├── config/
-│   ├── controllers/
-│   ├── middleware/
-│   ├── models/
-│   ├── routes/
-│   ├── server.js
-│   └── package.json
-│
-└── README.md
+BookStore/
+├── Client/      # React + Vite (Frontend UI, 3D Canvas, Pages, Components)
+└── Server/      # Node.js + Express + MongoDB (Database schemas, REST APIs, Auth)
 ```
 
 ---
 
-# 🚀 Getting Started
+## Getting Started
 
-## Clone the Repository
-
-```bash
-git clone https://github.com/your-username/BOOK-STORE.git
-```
-
-```bash
-cd BOOK-STORE
-```
+### 1. Prerequisites
+- **Node.js** (v18 or higher recommended)
+- **MongoDB** running locally on `mongodb://localhost:27017` OR a **MongoDB Atlas** connection string.
 
 ---
 
-## Install Dependencies
+### 2. Backend Setup (`Server/`)
 
-### Frontend
-
-```bash
-cd client
-npm install
-```
-
-### Backend
-
-```bash
-cd ../server
-npm install
-```
-
----
-
-# ▶️ Run the Application
-
-### Start the Backend
-
-```bash
-cd server
-node server.js
-```
-
-or
-
-```bash
-npm start
-```
-
-### Start the Frontend
-
-```bash
-cd client
-npm run dev
-```
+1. Open a terminal and navigate to the `Server` directory:
+   ```bash
+   cd Server
+   ```
+2. Create or check the `.env` file (one has already been generated with defaults):
+   ```env
+   PORT=5000
+   MONGO_URI=mongodb://localhost:27017/bookstore
+   JWT_SECRET=bookstore_super_secret_jwt_key_2026
+   JWT_EXPIRE=30d
+   NODE_ENV=development
+   ```
+   *If using MongoDB Atlas, replace `MONGO_URI` with your connection string.*
+3. Install dependencies:
+   ```bash
+   npm install
+   ```
+4. **Seed the database** (this will populate MongoDB with the 16 Indian & English books, test users, and orders):
+   ```bash
+   npm run seed
+   ```
+5. Start the backend server:
+   ```bash
+   npm run dev
+   ```
+   *The server runs on [http://localhost:5000](http://localhost:5000)*
 
 ---
 
-# 🔐 Environment Variables
+### 3. Frontend Setup (`Client/`)
 
-Create a `.env` file inside the **server** folder.
-
-```env
-PORT=5000
-
-MONGO_URI=your_mongodb_connection_string
-
-JWT_SECRET=your_secret_key
-```
-
----
-
-# 📌 Key Modules
-
-- **Authentication**
-- **Book Management**
-- **Shopping Cart**
-- **Order Management**
-- **Inventory Management**
-- **Admin Dashboard**
-- **User Management**
+1. Open a **second** terminal and navigate to the `Client` directory:
+   ```bash
+   cd Client
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the Vite development server:
+   ```bash
+   npm run dev
+   ```
+   *The client runs on [http://localhost:5173](http://localhost:5173)*
 
 ---
 
-# 🔮 Future Enhancements
+## Seeding & Test Credentials
+When you run `npm run seed`, the following test accounts are created:
 
-- 💳 Online Payment Integration
-- ⭐ Book Ratings & Reviews
-- ❤️ Wishlist Feature
-- 📧 Email Notifications
-- 📦 Order Tracking
-- 🤖 Personalized Book Recommendations
+### Customer Account
+- **Email**: `customer@bookstore.com`
+- **Password**: `password123`
 
----
-
-# 📄 License
-
-This project was developed as part of an academic learning experience and is intended for **educational purposes**.
-
----
-
-## ⭐ Support
-
-If you found this project useful, please consider giving it a **Star ⭐** on GitHub.
-
-**Happy Reading! 📚**
+### Administrator Account
+- **Email**: `admin@bookstore.com`
+- **Password**: `admin123`
